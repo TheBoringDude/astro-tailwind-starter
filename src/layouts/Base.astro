@@ -1,25 +1,32 @@
 ---
-const {title} = Astro.props
+import Seo from "../components/Seo.astro";
+
+const { title, description, images } = Astro.props;
 ---
 
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{title}</title>
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <link rel="stylesheet" type="text/css" href={Astro.resolve("../style/global.css")}>
-</head>
-<body class="bg-gray-900">
+  <head>
+    <Seo {title} {description} {images} />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href={Astro.resolve("../style/global.css")} />
+  </head>
+  <body class="bg-gray-900">
     <main>
-        <header class="py-24">
-            <div class="flex flex-col items-center">
-                <img width="60" height="80" src="/assets/logo.svg" alt="Astro logo">
-                <h1 class="text-3xl tracking-wide text-white font-black">Astro Tailwind Starter</h1>
-            </div>
-        </header>
+      <header class="py-24">
+        <div class="flex flex-col items-center">
+          <img width="60" height="80" src="/assets/logo.svg" alt="Astro logo" />
+          <h1 class="text-3xl tracking-wide text-white font-black">
+            Astro Tailwind Starter
+          </h1>
+        </div>
+      </header>
 
-        <slot />
+      <slot />
     </main>
-</body>
+  </body>
 </html>
